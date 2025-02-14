@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LungIQ</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/9774/9774048.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="bg-blue-50 font-sans text-gray-800">
+    <!-- Navbar -->
+    <header class="bg-white shadow p-5 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-blue-500 text-2xl font-bold">LungIQ</div>
+            <button id="menu-toggle" class="text-gray-700 md:hidden text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="menu" 
+                class="hidden md:flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 w-full md:w-auto p-4 md:p-0 shadow-md md:shadow-none absolute md:relative top-16 md:top-auto left-0 md:left-auto bg-white md:bg-transparent z-20">
+                 <a href="{{ url_for('home') }}" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Home</a>
+                 <a href="{{ url_for('about') }}" class="nav-link text-gray-700 hover:text-blue-500 font-medium">About</a>
+                 <a href="{{ url_for('predict') }}" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Start Diagnosis</a>
+                 <a href="{{ url_for('contact') }}" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Background Video -->
+    <header class="relative flex flex-col items-center justify-center py-20 text-center bg-blue-100 overflow-hidden min-h-screen">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-50 z-0">
+            <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="relative z-10 flex flex-col items-center justify-center py-20 text-center">
+            <h1 class="text-8xl font-bold text-blue-500">LungIQ</h1>
+            <p class="text-2xl text-gray-600 mt-5">Early Detection, Lifelong Protection</p>
+            <a href="{{ url_for('predict') }}" class="mt-8 bg-blue-500 text-white px-8 py-3 rounded-lg text-2xl hover:bg-blue-600">
+                Start Diagnosis
+            </a>
+        </div>
+    </header>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-8 bg-gradient-to-r from-white via-gray-100 to-gray-150">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-blue-500 mb-8">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="faq-item border-b border-gray-300 rounded-lg p-4">
+                    <button onclick="toggleFAQ('faq1')" class="w-full text-left text-base font-medium flex justify-between items-center transition-all duration-300 transform hover:text-blue-500">
+                        What is LungIQ?
+                        <i id="icon-faq1" class="fas fa-chevron-down text-blue-500"></i>
+                    </button>
+                    <div id="faq1" class="text-gray-600 mt-2 hidden pl-6 opacity-0 max-h-0 overflow-hidden transition-all ease-in-out duration-500">
+                        LungIQ is an AI-powered diagnostic tool designed to assist in early detection of lung-related conditions such as COVID-19 and pneumonia, using chest X-rays.
+                    </div>
+                </div>
+                <div class="faq-item border-b border-gray-300 rounded-lg p-4">
+                    <button onclick="toggleFAQ('faq2')" class="w-full text-left text-base font-medium flex justify-between items-center transition-all duration-300 transform hover:text-blue-500">
+                        How does LungIQ work?
+                        <i id="icon-faq2" class="fas fa-chevron-down text-blue-500"></i>
+                    </button>
+                    <div id="faq2" class="text-gray-600 mt-2 hidden pl-6 opacity-0 max-h-0 overflow-hidden transition-all ease-in-out duration-500">
+                        LungIQ analyzes chest X-ray images using machine learning models to detect signs of lung diseases such as COVID-19, pneumonia, and other conditions.
+                    </div>
+                </div>
+                <div class="faq-item border-b border-gray-300 rounded-lg p-4">
+                    <button onclick="toggleFAQ('faq3')" class="w-full text-left text-base font-medium flex justify-between items-center transition-all duration-300 transform hover:text-blue-500">
+                        Do I need to have an X-ray for the diagnosis?
+                        <i id="icon-faq3" class="fas fa-chevron-down text-blue-500"></i>
+                    </button>
+                    <div id="faq3" class="text-gray-600 mt-2 hidden pl-6 opacity-0 max-h-0 overflow-hidden transition-all ease-in-out duration-500">
+                        Yes, LungIQ requires a chest X-ray to analyze the image and provide a diagnosis. The X-ray should be clear and of good quality for accurate results.
+                    </div>
+                </div>
+                <div class="faq-item border-b border-gray-300 rounded-lg p-4">
+                    <button onclick="toggleFAQ('faq4')" class="w-full text-left text-base font-medium flex justify-between items-center transition-all duration-300 transform hover:text-blue-500">
+                        Is LungIQ available worldwide?
+                        <i id="icon-faq4" class="fas fa-chevron-down text-blue-500"></i>
+                    </button>
+                    <div id="faq4" class="text-gray-600 mt-2 hidden pl-6 opacity-0 max-h-0 overflow-hidden transition-all ease-in-out duration-500">
+                        LungIQ is available online, and while we aim to make it accessible globally, local regulations and healthcare standards may affect the availability of the service in some regions.
+                    </div>
+                </div>
+                <div class="faq-item rounded-lg p-4">
+                    <button onclick="toggleFAQ('faq5')" class="w-full text-left text-base font-medium flex justify-between items-center transition-all duration-300 transform hover:text-blue-500">
+                        How can I get started with LungIQ?
+                        <i id="icon-faq5" class="fas fa-chevron-down text-blue-500"></i>
+                    </button>
+                    <div id="faq5" class="text-gray-600 mt-2 hidden pl-6 opacity-0 max-h-0 overflow-hidden transition-all ease-in-out duration-500">
+                        To get started with LungIQ, simply upload a chest X-ray image through the website, and our system will analyze it and provide the results.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Questions Section -->
+<section id="more-questions" class="text-center py-20 bg-blue-50">
+    <h2 class="text-2xl font-bold text-blue-500">Have More Questions?</h2>
+    <p class="text-lg text-gray-600 mt-4 mb-8">If you have any further questions, feel free reach out to us directly.</p>
+    <a href="{{ url_for('contact') }}" class="mt-8 bg-blue-500 text-white px-6 py-2 rounded-lg text-xl hover:bg-blue-600">Contact Us</a>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-500 text-white text-center py-4">
+        <p>&copy; 2024 LungIQ. All rights reserved.</p>
+    </footer>
+
+    <!-- Script for toggling menu-->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        });
+    </script>
+    
+    <!-- Script for FAQ sections -->
+    <script>
+        let openFAQ = null;
+
+        function toggleFAQ(faqId) {
+            const faq = document.getElementById(faqId);
+            const icon = document.getElementById('icon-' + faqId);
+
+            // Close the previously open FAQ
+            if (openFAQ && openFAQ !== faqId) {
+                const previousFAQ = document.getElementById(openFAQ);
+                const previousIcon = document.getElementById('icon-' + openFAQ);
+                previousFAQ.classList.add('hidden');
+                previousFAQ.classList.remove('opacity-100', 'max-h-96');
+                previousFAQ.classList.add('opacity-0', 'max-h-0');
+                previousIcon.classList.remove('fa-chevron-up');
+                previousIcon.classList.add('fa-chevron-down');
+            }
+
+            // Toggle the current FAQ
+            if (faq.classList.contains('hidden')) {
+                faq.classList.remove('hidden');
+                faq.classList.add('opacity-100', 'max-h-96');
+                faq.classList.remove('opacity-0', 'max-h-0');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+                openFAQ = faqId; // Set the current FAQ as open
+            } else {
+                faq.classList.add('hidden');
+                faq.classList.remove('opacity-100', 'max-h-96');
+                faq.classList.add('opacity-0', 'max-h-0');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+                openFAQ = null;
+            }
+        }
+    </script>
+</body>
+
+</html>
