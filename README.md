@@ -61,7 +61,7 @@ The platform provides a detailed report showing whether the lungs are healthy, o
 Clone the repository to your local machine:
 
 ```
-git clone https://github.com/your-username/lungiq.git
+git clone https://github.com/ryshel-jasmi/LungIQ.git
 ```
 ```
 cd lungiq
