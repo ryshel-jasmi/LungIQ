@@ -4,7 +4,7 @@
 
 ---
 
-## **Why Choose LungIQ?**
+## Why Choose LungIQ?
 - **💡 Effortless Diagnosis:** Simply upload your chest X-rays for an instant and detailed evaluation.  
 - **🎯 AI-Powered Precision:** Our deep learning models, built on CNNs, ensure accurate and trustworthy results.  
 - **⚡ Time-Saving Insights:** Immediate diagnosis allows for timely medical attention and better outcomes.  
@@ -12,29 +12,29 @@
 
 ---
 
-## **How It Works**
+## How It Works
 
-### **1. Upload the X-Ray Image**  
+### 1. Upload the X-Ray Image
 Submit a clear, high-resolution X-ray image of the lungs. A good-quality image improves diagnostic accuracy.
 
-### **2. AI Analysis**  
+### 2. AI Analysis  
 The image is analyzed using a deep learning model specifically trained to classify lung conditions.
 
-### **3. Receive Your Diagnosis**  
+### 3. Receive Your Diagnosis  
 The platform provides a detailed report showing whether the lungs are healthy, or show signs of pneumonia or COVID-19.
 
 ---
 
-## **Key Features**
+## Key Features
 - **🎯 High Accuracy:** Advanced CNNs ensure highly accurate predictions for every image.
 - **⚡ Instant Results:** Obtain quick results to aid in timely medical decisions.
 - **📖 Disease Insights:** Gain clarity on symptoms, treatments, and disease progression.
 
 ---
 
-## **Technologies That Power LungIQ**
+## Technologies That Power LungIQ
 
-### **AI & Machine Learning Tools**
+### AI & Machine Learning Tools
 | Technology      | Role                                                                                  |
 |------------------|---------------------------------------------------------------------------------------|
 | Python           | Core programming language for building AI pipelines.                                |
@@ -42,7 +42,7 @@ The platform provides a detailed report showing whether the lungs are healthy, o
 | NumPy            | Facilitates numerical operations and data preprocessing for model training.         |
 | OpenCV           | Used for X-ray image processing and enhancement before feeding into the model.      |
 
-### **Web Development Frameworks**
+### Web Development Frameworks
 | Technology       | Role                                                                                 |
 |-------------------|--------------------------------------------------------------------------------------|
 | Flask            | Backend framework for building the application and managing APIs.                   |
@@ -51,19 +51,23 @@ The platform provides a detailed report showing whether the lungs are healthy, o
 
 ---
 
-## **Setup Instructions**
+## Setup Instructions
 
-### **1. Prerequisites**
+### 1. Prerequisites
 - Python 3 installed on your system.  
 - MongoDB installed and running locally.
 
-### **2. Clone the Project**
-Run the following commands in your terminal:
-```bash
-git clone https://github.com/your-username/lungiq.git
-cd lungiq
+#### a) Clone the Project
+Clone the repository to your local machine:
 
-#### a) Install Python Packages
+```
+git clone https://github.com/your-username/lungiq.git
+```
+```
+cd lungiq
+```
+
+#### b) Install Python Packages
 Install the necessary Python packages using pip:
 ```
 pip install -r requirements.txt
@@ -75,19 +79,19 @@ Or manually:
 pip install Flask pymongo opencv-python tensorflow werkzeug
 ```
 
-#### b) Set Up MongoDB
+#### c) Set Up MongoDB
 Make sure MongoDB is running on your machine:
 
 - Install MongoDB if you haven't already.
 - Start MongoDB by running mongod in your terminal (or follow MongoDB's installation guide for your OS).
 
-### **3. Run the Application**
+### 2. Run the Application
 Run the Flask app:
 ```
 python app.py
 ```
 
-### **4. Open the App in Your Browser**
+### 3. Open the App in Your Browser
 Open your browser and go to:
 ```
 http://127.0.0.1:5000/
